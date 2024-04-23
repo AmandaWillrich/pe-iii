@@ -1,4 +1,4 @@
-Modelo de Repositório para Práticas Extensionistas III
+Repositório para Práticas Extensionistas III
 
 # DESAFIOS E ADAPTAÇÃO: INCLUSÃO DE PESSOAS COM HABILIDADE TECNOLÓGICA LIMITADA NO MUNDO MODERNO
 FUCHS, Amanda Willrich; KRACHINSKI, Célio Fernandes; FERREIRA, Jian Rodrigues; DE CASTRO, Viviani.
