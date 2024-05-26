@@ -3,8 +3,8 @@ from django.shortcuts import render
 
 
 def homepage(request):
-    return render(request, 'forum/homepage.html', {})
-    # return render(request, 'base.html', {})
+    # return render(request, 'forum/homepage.html', {})
+    return render(request, 'base.html', {})
 
 # class HomePageView(View):
 #     template_name = 'homepage'
