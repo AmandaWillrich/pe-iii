@@ -1,13 +1,110 @@
-<html lang="en">
+{% extends 'app/base.html' %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
+{% block content %}
+<div class="row">
+	<div class="col">
+		<div class="list-group">
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6><i class="bi bi-house-door-fill"></i>
+					Página Inicial
+				</h6>
+			</a>
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6><i class="bi bi-bar-chart-line-fill"></i>
+					Popular
+				</h6>
+			</a>
+			<h5 class="text-center list-group-item my-0">Categorias</h5>
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6>Internet</h6>
+			</a>
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6>Hardware</h6>
+			</a>
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6>Software</h6>
+			</a>
+			<a class="list-group-item list-group-item-action" href="#">
+				<h6>Impressoras</h6>
+			</a>
+		</div>
+	</div>
 
-<body>
-	homepage
-</body>
+	<div class="col-6">
+		<div class="list-group">
+			<div class="list-group-item text-center py-2">
+				<h5>Tópicos Populares</h5>
+			</div>
+			<a href="#" class="list-group-item list-group-item-action py-3" aria-current="true">
+				<div class="d-flex w-100 justify-content-between align-items-center gap-3">
+				<i class="bi bi-chat fs-4"></i>
+				<h6 class="">Qual é a diferença entre armazenamento em nuvem e armazenamento local?</h6>
+				<div class="d-flex flex-nowrap gap-1">
+					<i class="bi bi-person-fill fs-5"></i>
+					<p class="mb-0">ZenCoder12</p>
+				</div>
+				<div class="d-flex flex-column">
+					<i class="bi bi-heart fs-5"></i>
+					<small>1,5k</small>
+				</div>
+				<div class="d-flex flex-column">
+					<i class="bi bi-bell fs-5"></i>
+					<small>0,3k</small>
+				</div>
+				</div>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action py-3" aria-current="true">
+				<div class="d-flex w-100 justify-content-between align-items-center gap-3">
+				<i class="bi bi-chat fs-4"></i>
+				<h6 class="">Existe uma maneira fácil de migrar meus dados de um dispositivo para o outro?</h6>
+				<div class="d-flex flex-nowrap gap-1">
+					<i class="bi bi-person-fill fs-5"></i>
+					<p class="mb-0">ByteMaster1</p>
+				</div>
+				<div class="d-flex flex-column">
+					<i class="bi bi-heart fs-5"></i>
+					<small>2,5k</small>
+				</div>
+				<div class="d-flex flex-column">
+					<i class="bi bi-bell fs-5"></i>
+					<small>0,5k</small>
+				</div>
+				</div>
+			</a>
+		</div>
+	</div>
 
-</html>
+	<div class="col">
+		<div class="list-group">
+			<div class="list-group-item text-center py-2">
+				<h5>Tópicos Recentes</h5>
+			</div>
+			<a href="#" class="list-group-item list-group-item-action" aria-current="true">
+				<div class="d-flex w-100 justify-content-between">
+				<h6 class="mb-1">Problemas Comuns</h6>
+				<small>3 dias atrás</small>
+				</div>
+				<p class="mb-1">Resolva problemas de lentidão e travamento.</p>
+				<small class="text-body-secondary">Dicas Rápidas</small>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				<h6 class="mb-1">Rede Segura</h6>
+				<small class="text-body-secondary">4 dias atrás</small>
+				</div>
+				<p class="mb-1">Explore métodos de criptografia.</p>
+				<small class="text-body-secondary">And some muted small print.</small>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				<h6 class="mb-1">Backup Eficiente</h6>
+				<small class="text-body-secondary">5 dias atrás</small>
+				</div>
+				<p class="mb-1">Saiba por que a criação regular de backups é essencial.</p>
+				<small class="text-body-secondary">And some muted small print.</small>
+			</a>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
