@@ -1,14 +1,13 @@
-from django.views.generic import ListView, View
-from django.shortcuts import render
+from django.views.generic import ListView
+from forum.models import Topic
 
+class HomePageView(ListView):
+    model = Topic
+    template_name = 'forum/homepage.html'
+    context_object_name = 'topics'
+    ordering = ['-date_posted']
+    paginate_by = 10 ## verificar essa paginação
 
-def homepage(request):
-    # return render(request, 'forum/homepage.html', {})
-    return render(request, 'base.html', {})
-
-# class HomePageView(View):
-#     template_name = 'homepage'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

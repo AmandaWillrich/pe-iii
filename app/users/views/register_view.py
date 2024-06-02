@@ -13,6 +13,6 @@ class RegisterView(FormView):
         form.save()
         messages.success(
             self.request,
-            f'Bem-vindo (a), {form.cleaned_data.get('username')}!'
+            f"Bem-vindo (a), {form.cleaned_data.get('username')}!"
         )
         return redirect('login')

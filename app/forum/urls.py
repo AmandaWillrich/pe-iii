@@ -1,9 +1,17 @@
 from django.urls import path
-# from .views import HomePageView
-from .views import homepage
+from forum.views import (
+    HomePageView,
+    CreateTopicView,
+    TopicDetailView,
+    DeleteTopicView,
+    UpdateTopicView
+)
 
 
 urlpatterns = [
-    # path('', HomePageView.as_view(), name='homepage')
-    path('', homepage, name='homepage')
+    path('', HomePageView.as_view(), name='homepage'),
+    path('topico/novo/', CreateTopicView.as_view(), name='create_topic'),
+    path('topico/<int:pk>/', TopicDetailView.as_view(), name='topic_detail'),
+    path('topico/<int:pk>/atualizar', UpdateTopicView.as_view(), name='update_topic'),
+    path('topico/<int:pk>/deletar', DeleteTopicView.as_view(), name='delete_topic'),
 ]

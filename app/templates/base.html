@@ -21,8 +21,7 @@
 				</div>
 				<div class="col text-end">
 					{% if user.is_authenticated %}
-						<span>{{ user.username }}</span>	
-						<a class="btn btn-primary me-2" href="#"><i class="bi bi-person-fill"></i> Criar Tópico</a>
+						<a class="btn btn-primary me-2" href="{% url 'create_topic' %}"><i class="bi bi-person-fill"></i> Criar Tópico</a>
 						<form action="{% url 'logout' %}" method="POST">
 							{% csrf_token %}
 							<button class="btn btn-outline-primary me-2" type="submit">Sair</button>
@@ -35,7 +34,35 @@
 			</div>
 		</nav>
 	</div>
-	<div class="">
+	<div class="row container m-auto">
+		<div class="row container m-auto">
+			<div class="col-3">
+				<div class="list-group">
+					<a class="list-group-item list-group-item-action" href="{% url 'homepage' %}">
+						<h6><i class="bi bi-house-door-fill"></i>
+							Página Inicial
+						</h6>
+					</a>
+					<a class="list-group-item list-group-item-action" href="#">
+						<h6><i class="bi bi-bar-chart-line-fill"></i>
+							Popular
+						</h6>
+					</a>
+					<h5 class="text-center list-group-item my-0">Categorias</h5>
+					<a class="list-group-item list-group-item-action" href="#">
+						<h6>Internet</h6>
+					</a>
+					<a class="list-group-item list-group-item-action" href="#">
+						<h6>Hardware</h6>
+					</a>
+					<a class="list-group-item list-group-item-action" href="#">
+						<h6>Software</h6>
+					</a>
+					<a class="list-group-item list-group-item-action" href="#">
+						<h6>Impressoras</h6>
+					</a>
+				</div>
+			</div>		
 		{% block content %}
 		{% endblock content %}
 	</div>
