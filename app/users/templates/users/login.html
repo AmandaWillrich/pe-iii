@@ -2,32 +2,34 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="col bg-light rounded">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
+    <div class="col">
+        <div class="container bg-light rounded">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <legend class="border-bottom mb-4 pt-2">
+                Entre
+            </legend>
+            <form class="col-6" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-primary mt-3" type="submit">
+                        Entrar
+                    </button>
                 </div>
-            {% endfor %}
-        {% endif %}
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4 pt-2">
-                    Entrar
-                </legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-primary mt-3" type="submit">
-                    Entrar
-                </button>
+            </form>
+            <div class="border-top py-3">
+                <small class="text-muted">
+                    Não possui uma conta? <a href="{% url 'register' %}" class="ml-2">Cadastre-se agora.</a>
+                </small>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Não possui uma conta? <a href="{% url 'register' %}" class="ml-2">Cadastre-se agora.</a>
-            </small>
         </div>
     </div>
 {% endblock content %}
