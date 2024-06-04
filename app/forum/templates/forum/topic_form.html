@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="col bg-light rounded">
+<div class="col">
+    <div class="container bg-light rounded">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -11,11 +12,12 @@
                 </legend>
                 {{ form|crispy }}
             </fieldset>
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <button class="btn btn-primary mt-3" type="submit">
-                    Criar
+                    {% if request.resolver_match.url_name == 'update_topic' %}Atualizar{% else %}Criar Tópico{% endif %}
                 </button>
             </div>
         </form>
     </div>
+</div>
 {% endblock content %}

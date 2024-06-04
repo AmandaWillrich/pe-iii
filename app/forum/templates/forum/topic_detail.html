@@ -1,19 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-    <article class="col bg-light rounded">
-        <div class="media-body">
-          <div class="article-metadata">
+<div class="col">
+  <article class="container bg-light rounded">
+      <div class="media-body">
+        <div class="article-metadata">
+          <legend class="border-bottom mb-2 pt-2">
+            <h3 class="article-title">{{ object.title }}</h3>
+          </legend>
+          {% if object.author == user %}
+            <div>
+              <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'update_topic' object.id %}"><i class="bi bi-pencil"></i> Editar</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_topic' object.id %}"><i class="bi bi-x-circle"></i> Deletar</a>
+            </div>
+          {% endif %}
+          <p class="article-content py-3 my-0">{{ object.content }}</p>
+          <div class="pb-3">
             <a class="mr-2" href="#">{{ object.author }}</a>
             <small class="text-muted">{{ object.date_posted|date:"d/m/Y" }}</small>
-            {% if object.author == user %}
-              <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_topic' object.id %}">Update</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_topic' object.id %}">Delete</a>
-              </div>
-            {% endif %}
           </div>
-          <h2 class="article-title">{{ object.title }}</h2>
-          <p class="article-content">{{ object.content }}</p>
         </div>
-    </article>
+      </div>
+  </article>
+</div>
 {% endblock content %}

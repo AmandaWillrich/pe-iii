@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 class Topic(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
+    title = models.CharField(max_length=100, verbose_name='Título')
+    content = models.TextField(verbose_name='Conteúdo')
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
