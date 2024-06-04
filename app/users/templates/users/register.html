@@ -1,27 +1,25 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="col">
-        <div class="container bg-light rounded">
-            <form method="POST">
-                {% csrf_token %}
-                <legend class="border-bottom mb-4 pt-2">
-                    Cadastre-se
-                </legend>
-                <fieldset class="col-6 form-group">
-                    {{ form|crispy }}
-                </fieldset>
-                <div class="form-group mt-3">
-                    <button class="btn btn-primary" type="submit">
-                        Cadastrar
-                    </button>
-                </div>
-            </form>
-            <div class="border-top pt-3 pb-3">
-                <small class="text-muted">
-                    Já possui uma conta? <a class="ml-2" href="{% url 'login' %}">Entrar agora</a>
-                </small>
+    <div class="container bg-light rounded">
+        <form method="POST">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4 pt-2">
+                Cadastre-se
+            </legend>
+            <fieldset class="col-6 form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group mt-3">
+                <button class="btn btn-primary" type="submit">
+                    Cadastrar
+                </button>
             </div>
+        </form>
+        <div class="border-top pt-3 pb-3">
+            <small class="text-muted">
+                Já possui uma conta? <a class="ml-2" href="{% url 'login' %}">Entrar agora</a>
+            </small>
         </div>
     </div>
 {% endblock content %}

@@ -4,28 +4,25 @@
 {% block content %}
     <div class="container bg-light rounded">
         <legend class="border-bottom mb-4 pt-2">
-            Entre
+            Entre em contato
         </legend>
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
+                <div class="alert alert-{{ message.tags }} mt-2">
                     {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
-        <form class="col-6" method="POST">
+        <form method="POST" class="col-6">
             {% csrf_token %}
             <fieldset class="form-group">
                 {{ form|crispy }}
             </fieldset>
-            <button class="btn btn-primary mt-3" type="submit">
-                Entrar
-            </button>
+            <div class="form-group pb-3">
+                <button class="btn btn-primary mt-3" type="submit">
+                    Enviar
+                </button>
+            </div>
         </form>
-        <div class="border-top py-3">
-            <small class="text-muted">
-                Não possui uma conta? <a href="{% url 'register' %}" class="ml-2">Cadastre-se agora</a>
-            </small>
-        </div>
     </div>
 {% endblock content %}

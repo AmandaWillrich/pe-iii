@@ -22,9 +22,10 @@
 	</style>
 </head>
 
-<body class="bg-secondary">
+<body class="bg-secondary d-flex flex-column min-vh-100">
+	<!-- data-bs-theme="dark" -->
 	<div class="bg-light">
-		<nav class="container py-3 mb-4">
+		<nav class="container py-3">
 			<div class="row align-items-center">
 				<div class="col"></div>
 				<div class="col-4">
@@ -48,7 +49,7 @@
 			</div>
 		</nav>
 	</div>
-	<div class="row container mx-auto align-items-start">
+	<div class="row container mx-auto align-items-start mt-3">
 		<div class="col-3 bg-light rounded p-3">
 			<div class="list-group bg-hover-primary">
 				<a class="list-group-item-action p-2 text-decoration-none {% if request.resolver_match.url_name == 'homepage' %}active{% endif %} rounded mb-1" href="{% url 'homepage' %}">
@@ -69,9 +70,18 @@
 				<a class="list-group-item" href="#"><p>Jogos</p></a>
 			</div>
 		</div>
-		{% block content %}
-		{% endblock content %}
+		<div class="col">
+			{% block content %}
+			{% endblock content %}
+		</div>
 	</div>
+	<footer class="bg-light text-lg-start mt-auto">
+		<div class="container p-3 d-flex justify-content-between">
+		  © 2024 Todos os direitos reservados
+		  <a class="link-primary" href="{% url 'contact' %}">Entre em contato</a>
+		</div>
+	  </footer>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
