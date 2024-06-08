@@ -4,7 +4,6 @@ from django.views.generic import UpdateView
 from forum.models import Topic
 
 
-
 class UpdateTopicView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Topic
     fields = ['title', 'content']

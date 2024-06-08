@@ -2,47 +2,40 @@
 
 {% block content %}
 	<div class="container list-group pe-0 mb-4">
-		<div class="list-group-item text-center py-2">
-			<h5>Tópicos Populares</h5>
-		</div>
-		{% for topic in topics %}
-			<a href="{% url 'topic_detail' topic.id %}" class="list-group-item list-group-item-action py-3" aria-current="true">
-				<div class="row align-items-center">
-					<i class="col-1 bi bi-chat fs-4 text-center"></i>
-					<h6 class="col">{{ topic.title }}</h6>
-					<div class="col-2">
-						<i class="bi bi-person-fill fs-5"></i>
-						<span class="mb-0">{{ topic.author.username }}</span>
-					</div>
-					<div class="col-1 d-flex flex-column text-center">
-						<i class="bi bi-heart fs-5"></i>
-						<small>1,5k</small>
-					</div>
-					<div class="col-1 d-flex flex-column text-center">
-						<i class="bi bi-bell fs-5"></i>
-						<small>0,3k</small>
-					</div>
-				</div>
-			</a>
-		{% endfor %}
-		{% if is_paginated %}
-			<div class="list-group-item text-center pe-0">
-				{% if page_obj.has_previous %}
-				<a class="btn btn-outline-primary my-2" href="?page=1">Primeira</a>
-				<a class="btn btn-outline-primary my-2" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-			{% endif %}
-			{% for num in page_obj.paginator.page_range %}
-				{% if page_obj.number == num %}
-				<a class="btn btn-primary my-2" href="?page={{ num }}">{{ num }}</a>
-				{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
-					<a class="btn btn-outline-primary my-2" href="?page={{ num }}">{{ num }}</a>
-				{% endif %}
-			{% endfor %}
-			{% if page_obj.has_next %}
-				<a class="btn btn-outline-primary my-2" href="?page={{ page_obj.next_page_number }}">Próxima</a>
-				<a class="btn btn-outline-primary my-2" href="?page={{ page_obj.paginator.num_pages }}">Última</a>
-			{% endif %}
+		{% if not search %}
+			<div class="list-group-item text-center py-2">
+				<h5>Tópicos Recentes</h5>
+			</div>
+		{% else %}
+			<div class="list-group-item py-2">
+				<h5>Pesquisando: {{ search }} {% if topics.count > 0 %}({{ topics.count }} resultados encontrados){% endif %}</h5>
 			</div>
 		{% endif %}
+		{% if topics %}
+			{% for topic in topics %}
+				<a href="{% url 'topic_detail' topic.id %}" class="list-group-item list-group-item-action py-3" aria-current="true">
+					<div class="row align-items-center">
+						<i class="col-1 bi bi-chat fs-4 text-center"></i>
+						<h6 class="col">{{ topic.title }}</h6>
+						<div class="col-2">
+							<i class="bi bi-person-fill fs-5"></i>
+							<span class="mb-0">{{ topic.author.username }}</span>
+						</div>
+						<div class="col-1 d-flex flex-column text-center">
+							<i class="bi bi-heart fs-5"></i>
+							<small>1,5k</small>
+						</div>
+						<div class="col-1 d-flex flex-column text-center">
+							<i class="bi bi-bell fs-5"></i>
+							<small>0,3k</small>
+						</div>
+					</div>
+				</a>
+			{% endfor %}
+		{% else %}
+			<p class="list-group-item">Nenhum resultado encontrado</p>
+		{% endif %}
+
+		{% include 'forum/partials/pagination.html' %}
 	</div>
 {% endblock content %}

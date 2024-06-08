@@ -28,12 +28,12 @@
 		<nav class="container py-3">
 			<div class="row align-items-center">
 				<div class="col"></div>
-				<div class="col-4">
+				<form class="col-4 mb-0" method="GET" action="{% url 'search_result' %}">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Procurar Tópico" aria-label="search" aria-describedby="search">
-						<span type="button" class="input-group-text bi bi-search"></span>
+						<input type="search" name="search" class="form-control" placeholder="Procurar Tópico" aria-label="search" aria-describedby="search">
+						<button type="submit" class="input-group-text bi bi-search"></button>
 					</div>
-				</div>
+				</form>
 				<div class="col text-end">
 					{% if user.is_authenticated %}
 						<a class="btn btn-primary me-2" href="{% url 'create_topic' %}"><i class="bi bi-person-fill"></i> Criar Tópico</a>

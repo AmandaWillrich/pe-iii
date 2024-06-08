@@ -5,7 +5,8 @@ from forum.views import (
     TopicDetailView,
     DeleteTopicView,
     UpdateTopicView,
-    ContactView
+    ContactView,
+    SearchTopicView
 )
 
 
@@ -16,4 +17,5 @@ urlpatterns = [
     path('topico/<int:pk>/atualizar', UpdateTopicView.as_view(), name='update_topic'),
     path('topico/<int:pk>/deletar', DeleteTopicView.as_view(), name='delete_topic'),
     path('contato/', ContactView.as_view(), name='contact'),
+    path('pesquisar/', SearchTopicView.as_view(), name='search_result'),
 ]
