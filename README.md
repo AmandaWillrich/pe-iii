@@ -1,7 +1,7 @@
 Repositório para Práticas Extensionistas III
 
 # DESAFIOS E ADAPTAÇÃO: INCLUSÃO DE PESSOAS COM HABILIDADE TECNOLÓGICA LIMITADA NO MUNDO MODERNO
-FUCHS, Amanda Willrich; KRACHINSKI, Célio Fernandes; FERREIRA, Jian Rodrigues; DE CASTRO, Viviani.
+FUCHS, Amanda Willrich; FERREIRA, Jian Rodrigues.
 
 <p align="justify">
 <strong>Introdução</strong>: A tecnologia está presente na realidade da maioria dos brasileiros e pode auxiliar na execução de tarefas diversas, sendo que o conhecimento acerca do tema é muitas vezes caracterizado como essencial para a entrada no mercado de trabalho. Mesmo com a necessidade de interação com a tecnologia em uma sociedade predominantemente digitalizada, nem todos os indivíduos estão preparados para utilizá-las ao seu favor ou até mesmo resolver possíveis problemas que possam ocorrer, muitas vezes recorrendo a ajuda profissional a fim de obter auxílio em tarefas simples. <strong>Objetivo</strong>: O estudo tem por objetivo propor o desenvolvimento de um fórum, de interface intuitiva, onde os usuários com conhecimento básico podem abrir discussões sobre diversos temas relacionados às tecnologias
