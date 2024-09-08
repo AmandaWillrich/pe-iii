@@ -1,3 +1,5 @@
+import dj_database_url
+
 """
 Django settings for app project.
 
@@ -28,7 +30,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 
 # Application definition
@@ -95,6 +97,23 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Check if the Supabase database URL is set
+if os.environ.get("SUPABASE_DB_URL"):
+    # Use the Supabase database configuration
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.environ.get("SUPABASE_DB_URL"), conn_max_age=600
+        )
+    }
+else:
+    # Use the SQLite database configuration for development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
