@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 INSTALLED_APPS = [
     'forum.apps.ForumConfig',
+    'api.apps.ApiConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap4',
-    'django_extensions'
+    'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +135,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

@@ -7,12 +7,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('forum.urls')),
     path('cadastrar/', RegisterView.as_view(), name='register'),
     path('entrar/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('sair/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+
+    path('', include('forum.urls')),
+    path('api/', include('api.urls')),
 ]
 
-# add at the last
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
