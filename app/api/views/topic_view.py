@@ -1,9 +1,8 @@
-from django.http import JsonResponse
 from forum.models import Topic
-from django.contrib.auth.models import User
 from rest_framework import viewsets
 
-from api.serializers import TopicSerializer
+from api.serializers.topic_serializer import TopicSerializer
+from rest_framework import viewsets
 
 
 class TopicView(viewsets.ModelViewSet):
