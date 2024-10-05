@@ -2,22 +2,18 @@ from rest_framework import serializers
 from forum.models import Topic
 from django.contrib.auth.models import User
 
-
-class TopicSerializer(serializers.Serializer):
-    title = serializers.CharField()
-    content = serializers.CharField()
-    date_posted = serializers.DateTimeField()
-    author = serializers.CharField()
+class TopicSerializer(serializers.ModelSerializer):
+    author = serializers.CharField(source='author.username')  # Use the author's username
 
     class Meta:
         model = Topic
-        fields = ['__all__']
+        fields = ['id', 'title', 'content', 'date_posted', 'author']
 
     def create(self, validated_data):
+        author_username = validated_data.pop('author')['username']
+        author = User.objects.get(username=author_username)
         topic = Topic.objects.create(
-            title=validated_data.get('title'),
-            content=validated_data.get('content'),
-            date_posted=validated_data.get('date_posted'),
-            author=User.objects.get(username=validated_data.get('author'))
+            author=author,
+            **validated_data
         )
         return topic
