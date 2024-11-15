@@ -14,19 +14,21 @@
 		{% if topics %}
 			{% for topic in topics %}
 				<a href="{% url 'topic_detail' topic.id %}" class="list-group-item list-group-item-action py-3" aria-current="true">
-					<div class="row align-items-center">
-						<i class="col-1 bi bi-chat fs-4 text-center"></i>
-						<h6 class="col">{{ topic.title }}</h6>
-						<div class="col-2">
-							<i class="bi bi-person-fill fs-5"></i>
-							<span class="mb-0">{{ topic.author.username|truncatechars:15 }}</span>
+					<div class="row align-items-center card-content">
+						<div class="col-12 col-md ps-1 d-flex">
+							<i class="bi bi-chat fs-4 text-center px-3"></i>
+							<h6 class="mb-0">{{ topic.title }}</h6>
 						</div>
-						<div class="col-1 d-flex flex-column text-center topic-like-amount">
-							<i class="bi bi-heart fs-5"></i>
+						<div class="col-12 col-md-auto d-flex align-items-center text-muted small mt-2 mt-md-0">
+							<i class="bi bi-person-fill me-1 ps-2"></i>
+							<span>{{ topic.author.username|truncatechars:15 }}</span>
+						</div>
+						<div class="col-6 col-md-auto text-center mt-2 mt-md-0 topic-like-amount">
+							<i class="bi bi-heart d-block"></i>
 							<small>1,5k</small>
 						</div>
-						<div class="col-1 d-flex flex-column text-center topic-mark-amount">
-							<i class="bi bi-bell fs-5"></i>
+						<div class="col-6 col-md-auto text-center mt-2 mt-md-0 topic-mark-amount">
+							<i class="bi bi-bell d-block"></i>
 							<small>0,3k</small>
 						</div>
 					</div>

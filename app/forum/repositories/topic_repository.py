@@ -11,9 +11,9 @@ class TopicRepository:
             author=author
         )
         topic.save()
-    
+
     def delete_topic_by_id(self, id):
         try:
             self.model.objects.get(id=id).delete()
-        except:
+        except Topic.DoesNotExist:
             pass

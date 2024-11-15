@@ -22,17 +22,41 @@
 			background-color: #0d6efd;
 			color: #fff;
 		}
+		.card-content {
+			gap: 15px;
+		}
+		.card-content h6 {
+			font-weight: 600;
+		}
+		.bi-chat {
+			align-self: center;
+		}
+		#side-menu {
+			transition: all 0.3s ease-in-out;
+		}
 		@media (min-width: 991.98px) {
-			#burger-menu {
+			.burger-menu-wrapper {
 				display: none;
+			}
+			.placeholder-column {
+				display: block;
 			}
 		}
 		@media (max-width: 991.98px) {
 			#side-menu {
 				display: none;
 			}
-			#burger-menu {
+			.burger-menu-wrapper {
 				display: block;
+			}
+			.placeholder-column {
+				display: none;
+			}
+			.action-section {
+				display: none;
+			}
+			.search-form {
+				flex-grow: 1;
 			}
 		}
 		@media (max-width: 767.98px) {
@@ -48,18 +72,20 @@
 	<div class="bg-dark">
 		<nav class="container py-3">
 			<div class="row align-items-center">
-				<div class="col burger-menu-wrapper">
+				<div class="col placeholder-column"></div>
+				<div class="col-auto burger-menu-wrapper">
 					<div id="burger-menu">
 						<button class="btn btn-outline-primary"><i class="bi bi-list"></i></button>
 					</div>
 				</div>
-				<form class="col-4 mb-0" method="GET" action="{% url 'search_result' %}">
+				
+				<form class="col-4 mb-0 search-form" method="GET" action="{% url 'search_result' %}">
 					<div class="input-group">
 						<input type="search" name="search" class="form-control" placeholder="Procurar Tópico" aria-label="search" aria-describedby="search">
 						<button type="submit" class="input-group-text bi bi-search"></button>
 					</div>
 				</form>
-				<div class="col text-end">
+				<div class="col text-end action-section">
 					{% if user.is_authenticated %}
 						<a class="btn btn-primary me-2" href="{% url 'create_topic' %}"><i class="bi bi-person-fill"></i> Criar Tópico</a>
 						<form class="d-inline-block mb-0" action="{% url 'logout' %}" method="POST">
@@ -111,3 +137,7 @@
 </body>
 
 </html>
+
+<script>
+
+</script>
